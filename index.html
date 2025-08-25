@@ -1,282 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>STRATA — Intelligence Beyond Borders</title>
-  <meta name="description" content="STRATA: Inteligência Estratégica Global. 50+ especialistas, 100+ idiomas e IA de ponta para transformar reuniões em vantagem competitiva.">
-  <link rel="icon" href="logo-strata.png">
+  <meta name="description" content="STRATA: Inteligência estratégica global. 50+ especialistas internacionais, 100+ idiomas, IA de ponta." />
+
   <style>
     :root{
-      --bg:#0B0B0B;
-      --card:#121212;
-      --text:#EAEAEA;
-      --muted:#A9B0BA;
-      --line:#1E1E1E;
-      --blue:#2A64FF;
-      --red:#FF3344;
-      --white:#FFFFFF;
-      --accent: linear-gradient(90deg,var(--blue),var(--white),var(--red));
+      --bg:#0c0c0f; --card:#121319; --muted:#9aa3ad; --txt:#e9edf2;
+      --grad1:#2a6df7; --grad2:#00d07d; --grad3:#ff4b5c;
+      --accent:linear-gradient(90deg,var(--grad1),var(--grad2),var(--grad3));
     }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #1a1f2a 0%, transparent 60%) , var(--bg);
+      color:var(--txt); -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    }
+    .wrap{max-width:1080px; margin:0 auto; padding:24px 18px 64px}
+    header{display:flex; align-items:center; gap:14px; padding:12px 0 4px}
+    .brand-block{display:flex; align-items:center; gap:14px}
+    .logo-img{width:164px; height:auto; display:block}
+    .brand-text small{display:block; color:#cfd5db; letter-spacing:.28em; font-weight:600; font-size:.78rem}
+    nav{margin-left:auto; display:flex; gap:18px; flex-wrap:wrap}
+    nav a{color:#cfd5db; text-decoration:none; font-weight:600; font-size:.95rem; opacity:.9}
+    nav a:hover{opacity:1}
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{background:var(--bg);color:var(--text);font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
+    .hero{display:grid; grid-template-columns:1.1fr; gap:18px; padding:30px 0 12px}
+    .title{font-weight:850; line-height:1.1; font-size:clamp(1.8rem,4.5vw,3rem)}
+    .title em{background:var(--accent); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .lead{color:var(--muted); font-size:1.05rem; margin-top:12px; line-height:1.6}
 
-    /* NAV */
-    .nav{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(10px);
-      background:rgba(11,11,11,.75);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{
-      max-width:1100px;margin:auto;display:flex;align-items:center;gap:16px;
-      padding:12px 20px;
-    }
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand img{width:40px;height:40px;border-radius:8px}
-    .brand .name{font-weight:800;letter-spacing:.06em}
-    .brand .tag{font-size:12px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
+    .rule{height:3px; border-radius:3px; background:var(--accent); margin:22px 0}
 
-    .nav-links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
-    .nav-links a{padding:8px 10px;border-radius:10px;color:var(--muted)}
-    .nav-links a:hover{color:var(--text);background:#151515}
-
-    /* HERO */
-    .hero{
-      border-bottom:1px solid var(--line);
-      background:
-        radial-gradient(1200px 500px at 10% -10%,rgba(42,100,255,.12),transparent 60%),
-        radial-gradient(1000px 500px at 90% -20%,rgba(255,51,68,.12),transparent 55%);
-    }
-    .hero-inner{max-width:1100px;margin:auto;padding:72px 20px 48px;display:grid;gap:30px}
-    .hero h1{
-      font-size:clamp(28px,5vw,42px);line-height:1.15;font-weight:900;
-    }
-    .hero h1 .em{background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero p{color:var(--muted);font-size:clamp(15px,1.8vw,18px)}
-    .badge{
-      display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);
-      padding:8px 12px;border-radius:999px;color:var(--muted);background:#111;
-    }
-    .rule{height:3px;background:var(--accent);border-radius:999px;margin:18px 0}
-
-    .cta{
-      display:flex;gap:12px;flex-wrap:wrap;margin-top:10px
-    }
+    .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
     .btn{
-      padding:14px 22px;border-radius:14px;font-weight:700;border:1px solid transparent;transition:transform .12s ease,box-shadow .12s ease,opacity .12s ease
+      --pad:13px 18px;
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
+      padding:var(--pad); border-radius:12px; text-decoration:none; font-weight:750;
+      border:1px solid #2a2f3a; transition:.2s; white-space:nowrap;
     }
-    .btn-primary{background:var(--accent);color:#000}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(42,100,255,.22)}
-    .btn-ghost{border-color:var(--line);color:var(--muted)}
-    .btn-ghost:hover{color:var(--text);background:#141414}
+    .btn-primary{
+      background:var(--accent); color:#0a0c10; border-color:transparent;
+      box-shadow:0 10px 28px rgba(42,109,247,.25), 0 6px 18px rgba(0,208,125,.18);
+    }
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-alt{background:#171a22; color:#dfe6ee}
+    .btn-alt:hover{background:#1e222d}
 
-    /* GRID BASE */
-    .section{max-width:1100px;margin:0 auto;padding:56px 20px;border-bottom:1px solid var(--line)}
-    .section h2{font-size:clamp(22px,3.8vw,28px);margin-bottom:10px}
-    .section .sub{color:var(--muted);margin-bottom:28px}
-
-    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:26px}
     .card{
-      background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px;
-      transition:transform .12s ease, border-color .12s ease;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px;
     }
-    .card:hover{transform:translateY(-4px);border-color:#222}
-    .card .icon{font-size:22px;margin-bottom:8px}
-    .card h3{font-size:17px;margin-bottom:6px}
-    .card p{color:var(--muted);font-size:14px}
+    .stat{font-size:2rem; font-weight:900}
+    .muted{color:var(--muted)}
 
-    @media (max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:620px){.cards{grid-template-columns:1fr}}
+    footer{margin-top:48px; border-top:1px solid rgba(255,255,255,.08); padding-top:18px; color:var(--muted); font-size:.95rem}
+    .top-pad{padding-top:8px}
 
-    /* STATS */
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
-    .stat .num{font:900 clamp(26px,6vw,34px)/1.1 system-ui;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .stat .lbl{color:var(--muted);font-size:13px;margin-top:4px}
-
-    @media (max-width:700px){.stats{grid-template-columns:1fr}}
-
-    /* CTA FINAL */
-    .cta-final{
-      text-align:center;background:linear-gradient(180deg,#111,transparent), radial-gradient(900px 300px at 50% -10%,rgba(42,100,255,.12),transparent 70%);
-      border-top:1px solid var(--line);
+    /* mobile tweaks */
+    @media (max-width:720px){
+      .logo-img{width:140px}
+      nav{display:none} /* simples no mobile */
+      .cta .btn{flex:1 1 260px}
     }
-    .cta-final .wrap{max-width:900px;margin:auto;padding:64px 20px}
-    .cta-final h3{font-size:clamp(22px,4vw,30px);margin-bottom:10px}
-    .cta-final p{color:var(--muted)}
-    .cta-final .cta{justify-content:center;margin-top:24px}
-
-    /* FOOTER */
-    footer{max-width:1100px;margin:0 auto;padding:28px 20px;color:var(--muted);display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
-    .foot-left{display:flex;gap:12px;align-items:center}
-    .mini{width:20px;height:20px;border-radius:6px}
   </style>
 </head>
-<body>
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top">
-        <img src="logo-strata.png" alt="Logo STRATA">
-        <div>
-          <div class="name">STRATA</div>
-          <div class="tag">Intelligence Beyond Borders</div>
+<body>
+  <div class="wrap">
+    <!-- Header (logo embutida via DATA URI) -->
+    <header>
+      <div class="brand-block">
+        <img class="logo-img" alt="STRATA – Intelligence Beyond Borders"
+             src="data:image/webp;base64,UklGRnYbAABXRUJQVlA4IGobAACwuwCdASpYAlgCPlEokkajoqGhIZL4mHAKCWlu4XaxH9TdeloPr/5Q9n5r2O0M1xPpJc8m9mH3J3XQ5r3kqz6q7O3Q8n2q3j0U2pYgR3c2h0u2g5P5kXc5Q0yB3n0x2m8mQvK4Czq4S0gk9v4ZTEeC3w9SxI3C8pGq1l3sQxkz2y2m5yqk0m2rZ8g2YJrj3Vx8bHq0d7m9pJkCkAA/v6cVBVZQOAB6AAAnQEqWAEYAA+USio7r3q8l9DqQ4Ck1kqg3Q3b7cC2Xxw1Qp8PI3i5mVw3w8j7b9y0L5x0Wg2d3d7yQm3z2h4v3Q8m9g0a2w8n4Q0l2v3o7w4Y0f0w" />
+        <div class="brand-text">
+          <strong style="font-size:1.35rem;letter-spacing:.12em">STRATA</strong>
+          <small>INTELLIGENCE&nbsp;BEYOND&nbsp;BORDERS</small>
         </div>
-      </a>
-      <nav class="nav-links">
+      </div>
+      <nav>
         <a href="#plataforma">Plataforma</a>
         <a href="#equipe">Equipe</a>
         <a href="#impacto">Impacto</a>
         <a href="#contato">Contato</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <!-- HERO -->
-  <section id="top" class="hero">
-    <div class="hero-inner">
-      <span class="badge">✅ Site verificado • GitHub Pages</span>
-      <h1>
-        A Primeira <span class="em">Plataforma de Inteligência Estratégica Global</span> desenvolvida no Brasil
+    <!-- Hero -->
+    <section class="hero" id="plataforma">
+      <h1 class="title">
+        A Primeira <em>Plataforma de Inteligência Estratégica Global</em> desenvolvida no Brasil
       </h1>
-      <p>50+ especialistas internacionais • 100+ idiomas • IA de ponta.<br>Transformando reuniões em vantagem competitiva mundial.</p>
-      <div class="rule"></div>
+      <p class="lead">
+        50+ especialistas internacionais • 100+ idiomas • IA de ponta. <br/>
+        Transformando reuniões em vantagem competitiva mundial.
+      </p>
+      <div class="rule" aria-hidden="true"></div>
+
       <div class="cta">
-        <a class="btn btn-primary" href="https://wa.me/5545991147313?text=Olá!%20Quero%20conhecer%20a%20STRATA." target="_blank" rel="noopener">Falar no WhatsApp</a>
-        <a class="btn btn-ghost" href="#plataforma">Ver recursos</a>
+        <a class="btn btn-primary"
+           href="https://wa.me/5545991147313?text=Ol%C3%A1!%20Quero%20conhecer%20os%20servi%C3%A7os%20da%20STRATA.">
+          🚀 Conhecer serviços
+        </a>
+        <a class="btn btn-alt"
+           href="https://wa.me/5545991569289?text=Ol%C3%A1!%20Tenho%20interesse%20em%20investir%20na%20STRATA.">
+          💼 Seja investidor
+        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PLATAFORMA -->
-  <section id="plataforma" class="section">
-    <h2>Plataforma</h2>
-    <p class="sub">Arquitetada para decisões rápidas, precisas e multiculturais — do board à operação.</p>
-
-    <div class="cards" style="margin-bottom:18px">
-      <article class="card">
-        <div class="icon">🌍</div>
-        <h3>Reuniões Multilíngues</h3>
-        <p>Tradução, nuances e contexto cultural preservados em tempo real para 100+ idiomas.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">🧠</div>
-        <h3>Orquestração de Especialistas</h3>
-        <p>Até 50+ especialistas simultâneos (estratégia, finanças, jurídica, psicologia e IA).</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">🔎</div>
-        <h3>Insights Ação-Ready</h3>
-        <p>Sumários executivos, riscos, alternativas e próximos passos prontos em minutos.</p>
-      </article>
-    </div>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="num">50+</div>
-        <div class="lbl">Especialistas simultâneos</div>
+    <!-- Alguns destaques rápidos -->
+    <section class="cards" id="equipe" aria-label="Destaques">
+      <div class="card">
+        <div class="stat">50+</div>
+        <div class="muted">Especialistas simultâneos</div>
       </div>
-      <div class="stat">
-        <div class="num">100+</div>
-        <div class="lbl">Idiomas suportados</div>
+      <div class="card">
+        <div class="stat">100+</div>
+        <div class="muted">Idiomas suportados</div>
       </div>
-      <div class="stat">
-        <div class="num">30 min</div>
-        <div class="lbl">Análise completa</div>
+      <div class="card">
+        <div class="stat">30&nbsp;min</div>
+        <div class="muted">Análise completa</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EQUIPE -->
-  <section id="equipe" class="section">
-    <h2>Equipe Internacional de Elite</h2>
-    <p class="sub">Curadoria global que une frameworks de elite e leitura humana de contexto.</p>
-
-    <div class="cards">
-      <article class="card">
-        <div class="icon">🏛️</div>
-        <h3>Consultores de Estratégia</h3>
-        <p>Playbooks e frameworks testados em 6 continentes para cenários complexos.</p>
-      </article>
-      <article class="card">
-        <div class="icon">⚖️</div>
-        <h3>Jurídico Internacional</h3>
-        <p>Compliance e regulação em múltiplas jurisdições, com leitura de riscos.</p>
-      </article>
-      <article class="card">
-        <div class="icon">💹</div>
-        <h3>Finanças Globais</h3>
-        <p>Estruturação, valuation, due diligence e governança com visão sem fronteiras.</p>
-      </article>
-      <article class="card">
-        <div class="icon">🧭</div>
-        <h3>Diplomacia de Negócios</h3>
-        <p>Negociação intercultural avançada e construção de consenso em mesa.</p>
-      </article>
-      <article class="card">
-        <div class="icon">🧬</div>
-        <h3>Psicologia Cultural</h3>
-        <p>Leitura de sinais, vieses e dinâmicas humanas em múltiplos contextos.</p>
-      </article>
-      <article class="card">
-        <div class="icon">🤖</div>
-        <h3>Especialistas em IA</h3>
-        <p>Modelagem, automação e análises de alta precisão com auditoria humana.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- IMPACTO -->
-  <section id="impacto" class="section">
-    <h2>Impacto Transformador</h2>
-    <p class="sub">Casos de uso típicos onde a STRATA vira a chave de competitividade.</p>
-
-    <div class="cards">
-      <article class="card">
-        <div class="icon">🗣️</div>
-        <h3>Reuniões Críticas</h3>
-        <p>Pré-briefing estratégico, leitura de sala e plano de fala para acordos sensíveis.</p>
-      </article>
-      <article class="card">
-        <div class="icon">🌐</div>
-        <h3>Expansão Internacional</h3>
-        <p>Entrada em novos mercados com inteligência local e mapeamento de riscos.</p>
-      </article>
-      <article class="card">
-        <div class="icon">🎯</div>
-        <h3>Estratégias Complexas</h3>
-        <p>Debate estruturado com especialistas para definir alternativas vencedoras.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section id="contato" class="cta-final">
-    <div class="wrap">
-      <h3>A revolução que fala todos os idiomas</h3>
-      <p>Mais que tecnologia — inteligência que entende sua cultura e respira seu mercado.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://wa.me/5545991147313?text=Olá!%20Quero%20conhecer%20a%20STRATA." target="_blank" rel="noopener">Falar com a STRATA no WhatsApp</a>
-        <a class="btn btn-ghost" href="#top">Voltar ao topo</a>
+    <footer id="contato">
+      <div><strong>STRATA — Intelligence Beyond Borders</strong></div>
+      <div class="top-pad">
+        Comercial: <a href="https://wa.me/5545991147313" style="color:#dfe6ee;text-decoration:none">+55 45 99114-7313</a> •
+        Investidores: <a href="https://wa.me/5545991569289" style="color:#dfe6ee;text-decoration:none">+55 45 99156-9289</a>
       </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="foot-left">
-      <img class="mini" src="logo-strata.png" alt="STRATA">
-      <span>STRATA © 2025</span>
-    </div>
-    <div>Intelligence Beyond Borders</div>
-  </footer>
-
+    </footer>
+  </div>
 </body>
 </html>
