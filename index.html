@@ -7,71 +7,62 @@
 <meta name="description" content="STRATA: Inteligência Estratégica Global. 50+ especialistas, 100+ idiomas, IA de ponta.">
 <style>
   :root{
-    --bg:#0b0f14;
-    --panel:#101722;
-    --muted:#9aa6b2;
-    --text:#e8eef5;
-    --brand1:#2d7ef7;
-    --brand2:#20dfa2;
-    --brand3:#ff6b6b;
-    --ring: 0 10px 40px rgba(32,223,162,.25);
+    --bg:#0b0f14; --panel:#101722; --muted:#9aa6b2; --text:#e8eef5;
+    --brand1:#2d7ef7; --brand2:#20dfa2; --brand3:#ff6b6b;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0;
-    font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
     color:var(--text);
     background:
       radial-gradient(1200px 600px at 10% -10%, #17304a 0%, transparent 55%),
       radial-gradient(900px 500px at 110% 10%, #14213a 0%, transparent 60%),
       linear-gradient(180deg, #0b1119 0%, #0b0f14 60%, #0b0f14 100%);
-    background-color:var(--bg);
   }
   a{color:inherit}
   .wrap{max-width:1150px;margin:0 auto;padding:24px}
   header{display:flex;align-items:center;gap:18px;padding:6px 0 18px}
-  /* ===== LOGO (SVG inline) ===== */
+
+  /* LOGO (SVG inline) */
   .logo{display:flex;align-items:center;gap:18px}
   .logo-mark{width:56px;height:56px;flex:0 0 56px}
   .logo-word{line-height:1}
   .logo-title{font-weight:800;letter-spacing:.08em;font-size:28px}
   .logo-tag{color:#b8c2cc;letter-spacing:.25em;font-size:11px;margin-top:4px}
-  /* ===== HERO ===== */
+
+  /* HERO */
   .hero{
     display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;
     padding:24px 0 10px;border-bottom:1px solid rgba(255,255,255,.06);
   }
   @media (max-width:900px){.hero{grid-template-columns:1fr;gap:10px}}
   .kicker{color:var(--muted);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:12px}
-  h1{
-    margin:.35em 0 .4em;font-size:clamp(28px,5vw,48px);line-height:1.1;font-weight:900;
-  }
+  h1{margin:.35em 0 .4em;font-size:clamp(28px,5vw,48px);line-height:1.1;font-weight:900}
   .h1-grad span:nth-child(1){background:linear-gradient(90deg,#84b6ff,#2d7ef7);-webkit-background-clip:text;color:transparent}
   .h1-grad span:nth-child(2){background:linear-gradient(90deg,#33f1b3,#1dd8a4);-webkit-background-clip:text;color:transparent}
   .h1-grad span:nth-child(3){background:linear-gradient(90deg,#ff7b7b,#ff416d);-webkit-background-clip:text;color:transparent}
   .lead{color:#c5cfd9;font-size:clamp(14px,2.2vw,18px);line-height:1.6;max-width:58ch}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+
+  /* BOTÕES */
   .btn{
     border:none;border-radius:14px;padding:14px 20px;font-weight:800;font-size:16px;
     cursor:pointer;text-decoration:none;display:inline-flex;gap:10px;align-items:center;
     transition:transform .12s ease, box-shadow .2s ease, opacity .2s ease;
-    will-change:transform,box-shadow;
   }
   .btn:hover{transform:translateY(-2px)}
-  .btn:active{transform:translateY(0)}
   .btn-primary{
     background:linear-gradient(90deg,#2d7ef7 0%, #20dfa2 50%, #ff6b6b 100%);
-    color:white; box-shadow: var(--ring);
+    color:white; box-shadow:0 10px 40px rgba(32,223,162,.25);
   }
-  /* Botão investidor em dourado */
   .btn-invest{
-    background: linear-gradient(90deg, #f7d774 0%, #f0b90b 45%, #ffce3a 100%);
-    color:#1a1400; box-shadow: 0 10px 40px rgba(240,185,11,.25);
+    background:linear-gradient(90deg,#f7d774 0%,#f0b90b 45%,#ffce3a 100%);
+    color:#1a1400; box-shadow:0 10px 40px rgba(240,185,11,.25);
     border:1px solid rgba(255,215,64,.25);
   }
-  .hint{font-size:12px;color:var(--muted)}
-  /* ===== CARDS / SEÇÕES ===== */
+
+  /* SEÇÕES / CARDS */
   .section{padding:28px 0}
   .grid{display:grid;gap:16px}
   .grid.cols-3{grid-template-columns:repeat(3,1fr)}
@@ -84,14 +75,34 @@
   }
   .card h3{margin:0 0 8px;font-size:18px}
   .card p{margin:0;color:#b5c0ca;font-size:14px;line-height:1.55}
-  /* MÉTRICAS */
-  .metric{display:flex;flex-direction:column;gap:2px;align-items:flex-start}
+  .metric{display:flex;flex-direction:column;gap:2px}
   .metric .num{font-size:34px;font-weight:900}
   .metric .lab{font-size:13px;color:#9fb0be}
-  /* rodapé */
   footer{border-top:1px solid rgba(255,255,255,.06);padding:20px 0 40px;color:#9fb0be;font-size:13px}
-  /* linha decorativa */
   .hr-gradient{height:4px;border-radius:4px;background:linear-gradient(90deg,#2d7ef7,#20dfa2,#ff6b6b);opacity:.9}
+
+  /* ===== Modal (mini-form) ===== */
+  .modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:9999; align-items:center; justify-content:center; padding:16px;}
+  .modal-card{width:100%; max-width:560px; background:#12151c; border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:18px;}
+  .modal-hd{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+  .modal-hd h3{margin:0}
+  .xbtn{background:transparent; border:none; color:#cbd5e1; font-size:20px; cursor:pointer}
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px}
+  .form-grid input, .form-grid select, .form-grid textarea, .wide{
+    padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,.08); background:#0b0f14; color:#e8eef5; width:100%;
+  }
+  .wide{grid-column:1/-1}
+  .help{color:#9aa6b2; font-size:13px; margin:6px 0 0}
+  .modal-actions{display:flex; gap:10px; margin-top:14px; justify-content:flex-end}
+  .btn-ghost{background:rgba(255,255,255,.02); color:#e8eef5; border:1px solid rgba(255,255,255,.08)}
+
+  /* ===== Toast ===== */
+  .toast{
+    position:fixed; left:50%; bottom:24px; transform:translateX(-50%);
+    background:#0f1720; color:#e8eef5; padding:12px 16px; border-radius:10px;
+    border:1px solid rgba(255,255,255,.1); box-shadow:0 10px 30px rgba(0,0,0,.35);
+    font-size:14px; display:none; z-index:10000;
+  }
 </style>
 </head>
 <body>
@@ -100,9 +111,7 @@
     <header>
       <div class="logo">
         <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
-          <!-- fundo arredondado -->
           <rect x="8" y="8" width="84" height="84" rx="18" fill="#0b0f14"/>
-          <!-- S estilizado com faixas -->
           <path d="M20,38 C35,22 65,22 80,38 L80,50 C65,34 35,34 20,50 Z" fill="#2d7ef7"/>
           <path d="M20,50 C35,36 65,36 80,50 L80,60 C65,46 35,46 20,60 Z" fill="#ffffff"/>
           <path d="M20,60 C35,48 65,48 80,60 L80,70 C65,58 35,58 20,70 Z" fill="#000000"/>
@@ -129,11 +138,11 @@
           Transformando reuniões em vantagem competitiva mundial.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://wa.me/5545991147313?text=Ol%C3%A1!%20Quero%20conhecer%20os%20servi%C3%A7os%20da%20STRATA.">🚀 Conhecer serviços</a>
-          <a class="btn btn-invest" href="https://wa.me/5545991569289?text=Ol%C3%A1!%20Tenho%20interesse%20em%20investir%20na%20STRATA.">💼 Seja investidor</a>
+          <button class="btn btn-primary" onclick="openForm('servicos')">🚀 Conhecer serviços</button>
+          <button class="btn btn-invest"  onclick="openForm('investidor')">💼 Seja investidor</button>
         </div>
         <div class="hr-gradient"></div>
-        <div class="hint" style="margin-top:10px">Atendimento humano e em múltiplos idiomas.</div>
+        <div class="help">Atendimento humano e em múltiplos idiomas.</div>
       </div>
       <div class="card" style="min-height:120px">
         <h3>Como a STRATA funciona?</h3>
@@ -147,18 +156,9 @@
     <!-- ====== DESTAQUES ====== -->
     <section class="section">
       <div class="grid cols-3">
-        <div class="card metric">
-          <div class="num">50+</div>
-          <div class="lab">Especialistas simultâneos</div>
-        </div>
-        <div class="card metric">
-          <div class="num">100+</div>
-          <div class="lab">Idiomas suportados</div>
-        </div>
-        <div class="card metric">
-          <div class="num">30 min</div>
-          <div class="lab">Análise completa</div>
-        </div>
+        <div class="card metric"><div class="num">50+</div><div class="lab">Especialistas simultâneos</div></div>
+        <div class="card metric"><div class="num">100+</div><div class="lab">Idiomas suportados</div></div>
+        <div class="card metric"><div class="num">30 min</div><div class="lab">Análise completa</div></div>
       </div>
     </section>
 
@@ -175,28 +175,209 @@
       </div>
     </section>
 
-    <!-- ====== IMPACTO ====== -->
-    <section class="section">
-      <h2 style="margin:0 0 12px">Impacto Transformador</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>🗣️ Reuniões multilíngues</h3><p>Capturamos nuances culturais e linguísticas que definem decisões.</p></div>
-        <div class="card"><h3>🎯 Estratégia executável</h3><p>Recomendações claras com responsáveis, prazos e indicadores.</p></div>
-        <div class="card"><h3>🌐 Expansão global</h3><p>Insights locais conectados a tendências internacionais.</p></div>
-        <div class="card"><h3>🧭 Governança & risco</h3><p>Visão jurídica, financeira e reputacional integrada.</p></div>
-      </div>
-    </section>
-
     <footer>
       <div>STRATA — Intelligence Beyond Borders</div>
-      <div style="margin-top:6px" class="hint">
-        © <span id="y"></span> STRATA. Onde a expertise global encontra a inovação brasileira.
-      </div>
+      <div style="margin-top:6px" class="help">© <span id="y"></span> STRATA. Onde a expertise global encontra a inovação brasileira.</div>
     </footer>
   </div>
+
+  <!-- ===== MODAL (MINI-FORM) ===== -->
+  <div id="leadModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-hd">
+        <h3 id="modalTitle">Fale com a STRATA</h3>
+        <button class="xbtn" onclick="closeForm()">✕</button>
+      </div>
+      <p id="modalHint" class="help">Preencha rapidamente e continuamos no WhatsApp Business.</p>
+
+      <!-- Campos comuns -->
+      <div class="form-grid">
+        <input id="fNome" class="wide" placeholder="Nome completo*" autocomplete="name">
+        <input id="fEmail" type="email" placeholder="E-mail*" autocomplete="email">
+        <input id="fTel"   type="tel" placeholder="Telefone / WhatsApp*" autocomplete="tel" maxlength="15">
+        <input id="fEmpresa" placeholder="Empresa / Fundo*" autocomplete="organization">
+        <input id="fPais" placeholder="País / Idioma">
+        <input id="fDispon" placeholder="Disponibilidade (ex.: amanhã 15h)">
+        <textarea id="fResumo" class="wide" rows="4" placeholder="Descreva em 1–2 frases seu objetivo*"></textarea>
+      </div>
+
+      <!-- Campos específicos: Serviços -->
+      <div id="servicosOnly" class="form-grid" style="display:none">
+        <select id="fAutor" class="wide">
+          <option value="">Você decide a contratação?*</option>
+          <option>Sou o decisor</option>
+          <option>Influencio a decisão</option>
+          <option>Não, vou encaminhar ao decisor</option>
+        </select>
+        <select id="fPrazo" class="wide">
+          <option value="">Quando pretende começar?*</option>
+          <option>Imediato (0–2 semanas)</option>
+          <option>Curto prazo (1 mês)</option>
+          <option>Médio prazo (2–3 meses)</option>
+          <option>Exploratório (a avaliar)</option>
+        </select>
+      </div>
+
+      <!-- Campos específicos: Investidor -->
+      <div id="investOnly" class="form-grid" style="display:none">
+        <select id="fPerfil" class="wide">
+          <option value="">Perfil do investidor*</option>
+          <option>Pessoa Física (Anjo)</option>
+          <option>Fundo / Corporate / Family Office</option>
+        </select>
+        <select id="fExp" class="wide">
+          <option value="">Experiência com investimentos?*</option>
+          <option>Sim</option>
+          <option>Não</option>
+        </select>
+        <input id="fAreas" class="wide" placeholder="Áreas de interesse / expertise (ex.: IA, fintech, B2B)">
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="closeForm()">Cancelar</button>
+        <button class="btn btn-primary" onclick="sendToWhats()">Continuar no WhatsApp</button>
+      </div>
+      <div class="help">Campos com * são obrigatórios.</div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script>
   // ano automático
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Número único (WhatsApp Business)
+  const WAPP = "5545991569289";
+  let mode = "servicos";
+
+  function openForm(m){
+    mode = m;
+    document.getElementById('modalTitle').textContent = (m === 'investidor') ? 'Seja investidor' : 'Conhecer serviços';
+    document.getElementById('modalHint').textContent  = (m === 'investidor')
+      ? 'Alguns dados rápidos — depois seguimos no WhatsApp Business de investimentos.'
+      : 'Alguns dados rápidos — depois seguimos no WhatsApp.';
+    document.getElementById('investOnly').style.display   = (m === 'investidor') ? 'grid' : 'none';
+    document.getElementById('servicosOnly').style.display = (m === 'servicos')  ? 'grid' : 'none';
+    document.getElementById('leadModal').style.display = 'flex';
+
+    // limpar campos
+    ['fNome','fEmail','fTel','fEmpresa','fPais','fDispon','fResumo','fAutor','fPrazo','fPerfil','fExp','fAreas'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      if(el.tagName === 'SELECT') el.selectedIndex = 0;
+      else el.value = '';
+    });
+  }
+  function closeForm(){
+    document.getElementById('leadModal').style.display = 'none';
+  }
+
+  // ======== MÁSCARA DE TELEFONE ( (99) 99999-9999 ) ========
+  const telInput = document.getElementById('fTel');
+  telInput.addEventListener('input', function(e){
+    let digits = this.value.replace(/\D/g, '').slice(0,11); // DDD + 9 dígitos
+    let out = digits;
+    if(digits.length > 0){
+      out = '(' + digits.substring(0,2);
+      if(digits.length >= 3){
+        out += ') ' + digits.substring(2,7);
+      }
+      if(digits.length >= 8){
+        out += '-' + digits.substring(7,11);
+      }
+    }
+    this.value = out;
+  });
+
+  // ======== VALIDAÇÃO DE E-MAIL ========
+  function isValidEmail(email){
+    // Regex equilibrado: cobre a maioria dos casos reais sem exagero
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    return re.test(String(email).trim());
+  }
+
+  // Toast
+  function toast(msg, ms=1800){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.display = 'block';
+    setTimeout(()=>{ t.style.display='none'; }, ms);
+  }
+
+  function getVal(id){ return (document.getElementById(id)?.value || '').trim(); }
+
+  function sendToWhats(){
+    // comuns
+    const nome = getVal('fNome'),
+          email = getVal('fEmail'),
+          telMask = getVal('fTel'),
+          emp = getVal('fEmpresa'),
+          pais = getVal('fPais'),
+          disp = getVal('fDispon'),
+          resumo = getVal('fResumo');
+
+    // validação comum
+    if(!nome || !email || !telMask || !emp || !resumo){
+      alert('Por favor, preencha Nome, E-mail, Telefone/WhatsApp, Empresa/Fundo e o Objetivo.');
+      return;
+    }
+    if(!isValidEmail(email)){
+      alert('Por favor, informe um e-mail válido.');
+      return;
+    }
+
+    // tirar máscara do telefone para o WhatsApp, se precisar
+    const telDigits = telMask.replace(/\D/g,'');
+
+    let header = (mode === 'investidor')
+      ? "Olá! Tenho interesse em investir na STRATA."
+      : "Olá! Quero conhecer os serviços da STRATA.";
+
+    let extra = "";
+    if(mode === 'investidor'){
+      const perfil = getVal('fPerfil'), exp = getVal('fExp'), areas = getVal('fAreas');
+      if(!perfil || !exp){
+        alert('Por favor, selecione Perfil do investidor e Experiência.');
+        return;
+      }
+      extra += (perfil ? `Perfil: ${perfil}\n` : "");
+      extra += (exp ?    `Experiência: ${exp}\n` : "");
+      extra += (areas ?  `Áreas de interesse: ${areas}\n` : "");
+    } else {
+      const autor = getVal('fAutor'), prazo = getVal('fPrazo');
+      if(!autor || !prazo){
+        alert('Por favor, selecione Autoridade de decisão e Prazo.');
+        return;
+      }
+      extra += (autor ? `Autoridade: ${autor}\n` : "");
+      extra += (prazo ? `Prazo: ${prazo}\n` : "");
+    }
+
+    const msg =
+`${header}
+
+Nome: ${nome}
+E-mail: ${email}
+Telefone/WhatsApp: ${telMask} (${telDigits})
+Empresa/Fundo: ${emp}
+País/Idioma: ${pais || '-'}
+Disponibilidade: ${disp || '-'}
+${extra}Objetivo: ${resumo}`;
+
+    // feedback visual
+    toast('Perfeito! Abrindo o WhatsApp…');
+
+    const link = `https://wa.me/${WAPP}?text=${encodeURIComponent(msg)}`;
+    window.open(link, '_blank');
+    closeForm();
+  }
+
+  // Fecha modal com ESC
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') closeForm();
+  });
 </script>
 </body>
 </html>
