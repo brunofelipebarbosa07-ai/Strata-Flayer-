@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -12,357 +11,304 @@
             box-sizing: border-box;
         }
 
-```
-    body {
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2d4a66 100%);
-        color: white;
-        overflow-x: hidden;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        min-height: 100vh;
-    }
-
-    /* Efeitos visuais de fundo */
-    .bg-effects {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0;
-    }
-
-    .circuit {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0.1;
-        background-image: 
-            radial-gradient(circle at 20% 30%, #00ff88 1px, transparent 1px),
-            radial-gradient(circle at 80% 70%, #0088ff 1px, transparent 1px),
-            radial-gradient(circle at 40% 90%, #ff0088 1px, transparent 1px);
-        background-size: 50px 50px, 30px 30px, 70px 70px;
-        animation: float 20s ease-in-out infinite;
-    }
-
-    .glow-orb {
-        position: absolute;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        filter: blur(60px);
-        animation: pulse 4s ease-in-out infinite;
-    }
-
-    .orb1 {
-        top: 10%;
-        right: -50px;
-        background: rgba(0, 255, 136, 0.3);
-        animation-delay: 0s;
-    }
-
-    .orb2 {
-        bottom: 20%;
-        left: -50px;
-        background: rgba(0, 136, 255, 0.3);
-        animation-delay: 2s;
-    }
-
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(180deg); }
-    }
-
-    @keyframes pulse {
-        0%, 100% { opacity: 0.3; transform: scale(1); }
-        50% { opacity: 0.6; transform: scale(1.1); }
-    }
-
-    .content {
-        position: relative;
-        z-index: 1;
-        padding: 40px 30px;
-    }
-
-    /* Header com logo */
-    .header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 10px;
-    }
-
-    .logo-icon {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #0088ff, #00ff88);
-        border-radius: 12px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
-    }
-
-    .logo-icon::before {
-        content: "S";
-        font-size: 32px;
-        font-weight: bold;
-        color: white;
-    }
-
-    .brand-name {
-        font-size: 48px;
-        font-weight: 900;
-        letter-spacing: 3px;
-        background: linear-gradient(135deg, #00ff88, #0088ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-    }
-
-    .tagline {
-        font-size: 18px;
-        color: #a0a9ba;
-        font-weight: 300;
-        letter-spacing: 2px;
-        margin-top: 5px;
-    }
-
-    /* Título principal */
-    .main-title {
-        text-align: center;
-        margin: 50px 0;
-        position: relative;
-    }
-
-    .title-bg {
-        font-size: 24px;
-        font-weight: 800;
-        color: rgba(255, 255, 255, 0.1);
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-    }
-
-    .title-main {
-        font-size: 32px;
-        font-weight: 700;
-        background: linear-gradient(135deg, #ffffff, #00ff88);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        line-height: 1.2;
-    }
-
-    .subtitle {
-        font-size: 16px;
-        color: #7c8ba1;
-        margin-top: 10px;
-    }
-
-    /* Seções de conteúdo */
-    .section {
-        margin: 40px 0;
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #00ff88, #0088ff, #ff0088);
-        animation: shimmer 3s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-        0% { opacity: 0.5; }
-        50% { opacity: 1; }
-        100% { opacity: 0.5; }
-    }
-
-    .section-icon {
-        display: inline-block;
-        font-size: 28px;
-        margin-right: 15px;
-        filter: drop-shadow(0 0 10px currentColor);
-    }
-
-    .section-title {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #00ff88;
-    }
-
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin: 20px 0;
-    }
-
-    .feature-item {
-        padding: 20px;
-        background: rgba(0, 255, 136, 0.05);
-        border-radius: 15px;
-        border: 1px solid rgba(0, 255, 136, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    .feature-item:hover {
-        background: rgba(0, 255, 136, 0.1);
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
-    }
-
-    .feature-icon {
-        font-size: 20px;
-        margin-bottom: 10px;
-        color: #00ff88;
-    }
-
-    .feature-title {
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: white;
-    }
-
-    .feature-desc {
-        font-size: 14px;
-        color: #a0a9ba;
-        line-height: 1.4;
-    }
-
-    /* Stats */
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin: 30px 0;
-    }
-
-    .stat-item {
-        text-align: center;
-        padding: 20px;
-        background: rgba(0, 136, 255, 0.05);
-        border-radius: 15px;
-        border: 1px solid rgba(0, 136, 255, 0.2);
-    }
-
-    .stat-number {
-        font-size: 36px;
-        font-weight: 900;
-        color: #0088ff;
-        display: block;
-    }
-
-    .stat-label {
-        font-size: 14px;
-        color: #7c8ba1;
-        margin-top: 5px;
-    }
-
-    /* CTA */
-    .cta-section {
-        text-align: center;
-        margin: 50px 0;
-        padding: 40px;
-        background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 136, 255, 0.1));
-        border-radius: 25px;
-        border: 2px solid rgba(0, 255, 136, 0.3);
-    }
-
-    .cta-title {
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 15px;
-        background: linear-gradient(135deg, #00ff88, #0088ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .cta-subtitle {
-        font-size: 16px;
-        color: #a0a9ba;
-        margin-bottom: 30px;
-        line-height: 1.5;
-    }
-
-    .cta-button {
-        display: inline-block;
-        padding: 15px 40px;
-        background: linear-gradient(135deg, #00ff88, #0088ff);
-        color: white;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 18px;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
-    }
-
-    .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(0, 255, 136, 0.5);
-    }
-
-    /* Footer */
-    .footer {
-        text-align: center;
-        padding: 30px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        margin-top: 50px;
-    }
-
-    .footer-text {
-        color: #7c8ba1;
-        font-size: 14px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-        .brand-name {
-            font-size: 36px;
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2d4a66 100%);
+            color: white;
+            overflow-x: hidden;
         }
-        
-        .title-main {
-            font-size: 24px;
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
         }
-        
-        .stats {
-            grid-template-columns: 1fr;
+
+        .bg-effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
         }
-        
+
+        .circuit {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 30%, #00ff88 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, #0088ff 1px, transparent 1px),
+                radial-gradient(circle at 40% 90%, #ff0088 1px, transparent 1px);
+            background-size: 50px 50px, 30px 30px, 70px 70px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .orb1 {
+            top: 10%;
+            right: -50px;
+            background: rgba(0, 255, 136, 0.3);
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            bottom: 20%;
+            left: -50px;
+            background: rgba(0, 136, 255, 0.3);
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
         .content {
-            padding: 20px 15px;
+            position: relative;
+            z-index: 1;
+            padding: 40px 30px;
         }
-    }
-</style>
-```
 
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0088ff, #00ff88);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #00ff88, #0088ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #a0a9ba;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .main-title {
+            text-align: center;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .title-bg {
+            font-size: 24px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .title-main {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #7c8ba1;
+            margin-top: 10px;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: #a0a9ba;
+            line-height: 1.4;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 136, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 136, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 900;
+            color: #0088ff;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #7c8ba1;
+            margin-top: 5px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 136, 255, 0.1));
+            border-radius: 25px;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #00ff88, #0088ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-subtitle {
+            font-size: 16px;
+            color: #a0a9ba;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00ff88, #0088ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+
+        .footer-text {
+            color: #7c8ba1;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .brand-name { font-size: 36px; }
+            .title-main { font-size: 24px; }
+            .stats { grid-template-columns: 1fr; }
+            .content { padding: 20px 15px; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -372,141 +318,68 @@
             <div class="glow-orb orb2"></div>
         </div>
 
-```
-    <div class="content">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <div class="logo-icon"></div>
-                <div>
-                    <div class="brand-name">STRATA</div>
-                    <div class="tagline">INTELLIGENCE BEYOND BORDERS</div>
+        <div class="content">
+            <header class="header">
+                <div class="logo">
+                    <div class="logo-icon">S</div>
+                    <div>
+                        <div class="brand-name">STRATA</div>
+                        <div class="tagline">INTELLIGENCE BEYOND BORDERS</div>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        <!-- Título Principal -->
-        <section class="main-title">
-            <div class="title-bg">REVOLUÇÃO</div>
-            <h1 class="title-main">
-                A Primeira Plataforma de<br>
-                <strong>Inteligência Estratégica Global</strong><br>
-                Desenvolvida no Brasil
-            </h1>
-            <p class="subtitle">
-                Mais de 50 especialistas internacionais + 100 idiomas + IA de ponta<br>
-                Transformando reuniões em vantagem competitiva mundial
-            </p>
-        </section>
+            <section class="main-title">
+                <div class="title-bg">REVOLUÇÃO</div>
+                <h1 class="title-main">
+                    A Primeira Plataforma de<br>
+                    <strong>Inteligência Estratégica Global</strong><br>
+                    Desenvolvida no Brasil
+                </h1>
+                <p class="subtitle">
+                    Mais de 50 especialistas internacionais + 100 idiomas + IA de ponta<br>
+                    Transformando reuniões em vantagem competitiva mundial
+                </p>
+            </section>
 
-        <!-- Equipe Internacional -->
-        <section class="section">
-            <h2 class="section-title">
-                <span class="section-icon">🧠</span>
-                Equipe Internacional de Elite
-            </h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🌍</div>
-                    <div class="feature-title">Consultores McKinsey Globais</div>
-                    <div class="feature-desc">Frameworks estratégicos testados em 6 continentes</div>
+            <section class="section">
+                <h2 class="section-title">🧠 Equipe Internacional de Elite</h2>
+                <div class="feature-grid">
+                    <div class="feature-item"><div class="feature-icon">🌍</div><div class="feature-title">Consultores McKinsey Globais</div><div class="feature-desc">Frameworks estratégicos testados em 6 continentes</div></div>
+                    <div class="feature-item"><div class="feature-icon">🧠</div><div class="feature-title">Psicólogos Multiculturais</div><div class="feature-desc">Análise comportamental em diferentes culturas</div></div>
+                    <div class="feature-item"><div class="feature-icon">⚖️</div><div class="feature-title">Advogados Internacionais</div><div class="feature-desc">Compliance em múltiplas jurisdições globais</div></div>
+                    <div class="feature-item"><div class="feature-icon">💰</div><div class="feature-title">CFOs Multinacionais</div><div class="feature-desc">Visão financeira sem fronteiras</div></div>
+                    <div class="feature-item"><div class="feature-icon">🤖</div><div class="feature-title">Especialistas IA Poliglotas</div><div class="feature-desc">Tecnologia que entende o mundo inteiro</div></div>
+                    <div class="feature-item"><div class="feature-icon">🤝</div><div class="feature-title">Diplomatas Empresariais</div><div class="feature-desc">Negociação intercultural avançada</div></div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🧠</div>
-                    <div class="feature-title">Psicólogos Multiculturais</div>
-                    <div class="feature-desc">Análise comportamental em diferentes culturas</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚖️</div>
-                    <div class="feature-title">Advogados Internacionais</div>
-                    <div class="feature-desc">Compliance em múltiplas jurisdições globais</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
-                    <div class="feature-title">CFOs Multinacionais</div>
-                    <div class="feature-desc">Visão financeira sem fronteiras</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🤖</div>
-                    <div class="feature-title">Especialistas IA Poliglotas</div>
-                    <div class="feature-desc">Tecnologia que entende o mundo inteiro</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🤝</div>
-                    <div class="feature-title">Diplomatas Empresariais</div>
-                    <div class="feature-desc">Negociação intercultural avançada</div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Stats Impressionantes -->
-        <section class="stats">
-            <div class="stat-item">
-                <span class="stat-number">50+</span>
-                <div class="stat-label">Especialistas<br>Simultâneos</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">100+</span>
-                <div class="stat-label">Idiomas<br>Suportados</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">30min</span>
-                <div class="stat-label">Análise<br>Completa</div>
-            </div>
-        </section>
+            <section class="stats">
+                <div class="stat-item"><span class="stat-number">50+</span><div class="stat-label">Especialistas<br>Simultâneos</div></div>
+                <div class="stat-item"><span class="stat-number">100+</span><div class="stat-label">Idiomas<br>Suportados</div></div>
+                <div class="stat-item"><span class="stat-number">30min</span><div class="stat-label">Análise<br>Completa</div></div>
+            </section>
 
-        <!-- Impacto Transformador -->
-        <section class="section">
-            <h2 class="section-title">
-                <span class="section-icon">🔥</span>
-                Impacto Transformador
-            </h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🗣️</div>
-                    <div class="feature-title">Reuniões Multilíngues</div>
-                    <div class="feature-desc">Analisamos cada nuance cultural e linguística</div>
+            <section class="section">
+                <h2 class="section-title">🔥 Impacto Transformador</h2>
+                <div class="feature-grid">
+                    <div class="feature-item"><div class="feature-icon">🗣️</div><div class="feature-title">Reuniões Multilíngues</div><div class="feature-desc">Analisamos cada nuance cultural e linguística</div></div>
+                    <div class="feature-item"><div class="feature-icon">🤝</div><div class="feature-title">Negociações Internacionais</div><div class="feature-desc">Entendemos códigos culturais específicos</div></div>
+                    <div class="feature-item"><div class="feature-icon">🌍</div><div class="feature-title">Expansão Global</div><div class="feature-desc">Expertise local em tempo real</div></div>
+                    <div class="feature-item"><div class="feature-icon">🎯</div><div class="feature-title">Estratégias Complexas</div><div class="feature-desc">50+ especialistas analisando simultaneamente</div></div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🤝</div>
-                    <div class="feature-title">Negociações Internacionais</div>
-                    <div class="feature-desc">Entendemos códigos culturais específicos</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌍</div>
-                    <div class="feature-title">Expansão Global</div>
-                    <div class="feature-desc">Expertise local em tempo real</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🎯</div>
-                    <div class="feature-title">Estratégias Complexas</div>
-                    <div class="feature-desc">50+ especialistas analisando simultaneamente</div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- CTA -->
-        <section class="cta-section">
-            <h2 class="cta-title">A Revolução que Fala Todos os Idiomas</h2>
-            <p class="cta-subtitle">
-                Mais que tecnologia. É inteligência que fala sua língua,<br>
-                entende sua cultura e respira seu mercado.
-            </p>
-            <a href="https://wa.me/5545991147313?text=Olá!%20Vi%20o%20flyer%20da%20STRATA%20e%20quero%20saber%20mais%20sobre%20a%20plataforma%20de%20inteligência%20estratégica!" class="cta-button">Quero Conhecer a STRATA</a>
-        </section>
+            <section class="cta-section">
+                <h2 class="cta-title">A Revolução que Fala Todos os Idiomas</h2>
+                <p class="cta-subtitle">Mais que tecnologia. É inteligência que fala sua língua,<br> entende sua cultura e respira seu mercado.</p>
+                <a href="https://wa.me/5545991147313?text=Olá!%20Vi%20o%20flyer%20da%20STRATA%20e%20quero%20saber%20mais%20sobre%20a%20plataforma%20de%20inteligência%20estratégica!" class="cta-button">Quero Conhecer a STRATA</a>
+            </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p class="footer-text">
-                <strong>STRATA - Intelligence Beyond Borders</strong><br>
-                Onde a expertise global encontra a inovação brasileira.<br>
-                <br>
-                #InteligênciaGlobal #Multilíngue #EmpresasGlobais #Inovação #Brasil
-            </p>
-        </footer>
+            <footer class="footer">
+                <p class="footer-text"><strong>STRATA - Intelligence Beyond Borders</strong><br> Onde a expertise global encontra a inovação brasileira.<br><br>#InteligênciaGlobal #Multilíngue #EmpresasGlobais #Inovação #Brasil</p>
+            </footer>
+        </div>
     </div>
-</div>
-```
-
 </body>
 </html>
